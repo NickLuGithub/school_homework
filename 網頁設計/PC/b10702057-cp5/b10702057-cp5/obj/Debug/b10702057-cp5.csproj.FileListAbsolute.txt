@@ -1,0 +1,7 @@
+C:\Users\word4\Documents\學校\網頁設計\PC\b10702057-cp5\b10702057-cp5\bin\Debug\b10702057-cp5.exe.config
+C:\Users\word4\Documents\學校\網頁設計\PC\b10702057-cp5\b10702057-cp5\bin\Debug\b10702057-cp5.exe
+C:\Users\word4\Documents\學校\網頁設計\PC\b10702057-cp5\b10702057-cp5\bin\Debug\b10702057-cp5.pdb
+C:\Users\word4\Documents\學校\網頁設計\PC\b10702057-cp5\b10702057-cp5\obj\Debug\b10702057-cp5.csprojAssemblyReference.cache
+C:\Users\word4\Documents\學校\網頁設計\PC\b10702057-cp5\b10702057-cp5\obj\Debug\b10702057-cp5.csproj.CoreCompileInputs.cache
+C:\Users\word4\Documents\學校\網頁設計\PC\b10702057-cp5\b10702057-cp5\obj\Debug\b10702057-cp5.exe
+C:\Users\word4\Documents\學校\網頁設計\PC\b10702057-cp5\b10702057-cp5\obj\Debug\b10702057-cp5.pdb

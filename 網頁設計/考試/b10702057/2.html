@@ -1,0 +1,91 @@
+<html>
+<head>
+<script>
+var rolling;
+
+function roll() {
+	rolling = setInterval(frame, 50);
+}
+
+function frame() {  
+	var n1 = Math.floor(Math.random() * 6) + 1;
+	var n2 = Math.floor(Math.random() * 6) + 1;
+	var n3 = Math.floor(Math.random() * 6) + 1;
+	var n4 = Math.floor(Math.random() * 6) + 1;
+	var n5 = Math.floor(Math.random() * 6) + 1;
+	var n6 = Math.floor(Math.random() * 6) + 1;
+	
+	document.getElementById("dice1").src = "dice" + n1 + ".png";
+	document.getElementById("dice2").src = "dice" + n2 + ".png";
+	document.getElementById("dice3").src = "dice" + n3 + ".png";
+	document.getElementById("dice4").src = "dice" + n4 + ".png";
+	document.getElementById("dice5").src = "dice" + n5 + ".png";
+	document.getElementById("dice6").src = "dice" + n6 + ".png";
+
+	var rolltime = setTimeout(stop, 2000);
+
+	var PlayerPoint = number(n1, n2, n3);
+	var ComputerPoint = number(n4, n5, n6);
+
+	document.getElementById("OutStr").innerHTML = "The player got " + PlayerPoint + " points.";
+	document.getElementById("OutStr").innerHTML += "</br>The computer got " + ComputerPoint + " points.";
+	var p_total = 100, c_total = 100;
+	if (PlayerPoint > ComputerPoint){
+		document.getElementById("OutStr").innerHTML += "</br>The winner is the player.";
+	}else if (PlayerPoint < ComputerPoint){
+		document.getElementById("OutStr").innerHTML += "</br>The winner is the computer.";
+		
+	}else{
+		document.getElementById("OutStr").innerHTML += "</br>The game is a draw."
+	}
+}
+
+function stop() {
+	clearInterval(rolling);
+}
+function number(a, b, c){
+	if (a == b && b == c){
+		return a + b + c;
+	}else if(a == b && b != c){
+		if ( a + b > c){
+			return a + b;
+		}else{
+			return c;
+		}
+	}else if(a != b && b == c){
+		if (b + c > a){
+			return b + c;
+		}else{
+			return a;
+		}
+	}else if(a == c && a != b){
+		if (a + c > b){
+			return a + c;
+		}else{
+			return b;
+		}
+	}else{
+		var k;
+		k = a;
+		if (b > k) k = b;
+		if (c > k) k = c;
+		return k;
+	}
+}
+</script>
+</head>
+Player<br/>
+<img id = "dice1" src = "dice1.png" />
+<img id = "dice2" src = "dice1.png" />
+<img id = "dice3" src = "dice1.png" /> <br/>
+Computer<br/>
+<img id = "dice4" src = "dice1.png" />
+<img id = "dice5" src = "dice1.png" />
+<img id = "dice6" src = "dice1.png" /> <br/>
+<button onclick="roll()">Roll</button>
+<p id = "OutStr" />
+<p id = "Playertotal"/>
+<p id = "comptertotal"/>
+<body>
+</body>
+</html>

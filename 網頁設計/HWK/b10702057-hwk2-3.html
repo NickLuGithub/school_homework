@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Nick-hwk2-3</title>
+	<script>
+		var a, b;
+		var first_point = 100, second_point = 100, out = 1;
+		var rolling, go = 0, gonew = 0;
+		function input_name()
+		{
+			a = document.getElementById("first_name").value - 0;
+			b = document.getElementById("second_name").value - 0;
+			document.getElementById("first_name_out").innerHTML = a;
+			document.getElementById("second_name_out").innerHTML = b;
+			out = 0;
+		}
+
+		function roll()
+		{
+			if (first_point > 0 && second_point > 0 && out == 0)
+			{
+				document.getElementById("OP").innerHTML = "遊戲開始囉!";
+				frame();
+			}
+			else if (first_point <= 0 && second_point <= 0)
+			{
+				out++;
+				document.getElementById("OP").innerHTML = "平手喔!!";
+			}
+			else if (first_point <= 0)
+			{
+				out++;
+				document.getElementById("OP").innerHTML = a + "獲勝!";
+			}
+			else if (second_point <= 0)
+			{
+				out++;
+				document.getElementById("OP").innerHTML = b + "獲勝!";
+			}
+
+		}
+
+		function frame()
+		{
+			var n = Math.floor(Math.random() * 6) + 1;
+			document.getElementById("dice_point").innerHTML = n;
+			document.getElementById(go.toString()).style.backgroundColor = "white";
+			go = go + n;
+			if (go >= 12)
+			{
+				go = go - 12;
+			}
+			document.getElementById(go.toString()).style.backgroundColor = "orange";
+			var number = document.getElementById(go.toString()).innerHTML - 0;
+			if (!number)
+			{
+				number = 0;
+			}
+
+			if (gonew == 0)
+			{
+				first_point = first_point + number;
+				gonew = 1;
+			}
+			else if (gonew == 1)
+			{
+				second_point = second_point + number;
+				gonew = 0;
+			}
+			document.getElementById("first_score").innerHTML = first_point;
+			document.getElementById("second_score").innerHTML = second_point;
+		}
+
+		function result()
+		{
+			if (first_point == second_point)
+			{
+				document.getElementById("OP").innerHTML = "平手喔!!";
+			}
+			else if (first_point > second_point)
+			{
+				document.getElementById("OP").innerHTML = a + "獲勝!";
+			}
+			else if (first_point < second_point)
+			{
+				document.getElementById("OP").innerHTML = b + "獲勝!";
+			}
+			out++;
+		}
+	</script>
+</head>
+<body>
+<p>
+	Enter the name of the first player<input type = "text" id = "first_name"><br/>
+	Enter the name of the second player<input type = "text" id = "second_name"><br/>
+	<button onclick = "input_name()">GO</button>
+</p>
+<hr>
+<h1>
+	<table border = "1" cellpadding = "15" cellspacing = "0">
+		<tr align = "center">
+			<td width = "75" height = "75" id = "0" bgcolor = "orange">Start</td>
+			<td width = "75" height = "75" id = "1">-40</td>
+			<td width = "75" height = "75" id = "2">20</td>
+			<td width = "75" height = "75" id = "3">-10</td>
+		</tr>
+		<tr align = "center">
+			<td width = "75" height = "75" id = "11">30</td>
+			<td width = "75" height = "75" id = "" rowspan = "2" colspan = "2">&nbsp;</td>
+			<!-- &nbsp == 半形空白 -->
+			<td width = "75" height = "75" id = "4">20</td>
+		</tr>
+		<tr align = "center">
+			<td width = "75" height = "75" id = "10">-20</td>
+			<td width = "75" height = "75" id = "5">-50</td>
+		</tr>	
+		<tr align = "center">
+			<td width = "75" height = "75" id = "9">-30</td>
+			<td width = "75" height = "75" id = "8">20</td>
+			<td width = "75" height = "75" id = "7">10</td>
+			<td width = "75" height = "75" id = "6">40</td>
+		</tr>
+	</table>
+	<button type = "button" onclick = "roll()">Roll</button>
+	<button type = "button" onclick = "result()">Result</button>
+</h1>
+<hr>
+<h2>
+	<p id = "OP"><br/>
+	骰子點數：<p id = "dice_point">
+	<table border = "1" cellspacing = "0" cellpadding = "10">
+		<tr>
+			<td id = "first_name_out"/>first_name</td>
+			<td id = "first_score" />100</span></td>
+		</tr>
+		<tr>
+			<td id = "second_name_out"/>second_name</td>
+			<td id = "second_score" />100</span></td>
+		</tr>
+	</table>
+</h2>
+</body>
+</html>

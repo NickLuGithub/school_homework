@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head><title>Random Array</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $("#random").click(function() {
+      game();
+    });    
+});
+function game() {
+	var s = $("#numbers").val();
+	s = s.split(" ");
+	for(var i = 0; i < 3; i++) s[i] -= 0;
+	var a = new Array(3);
+	for (i = 0; i < 3; i++) {
+	  a[i] = Math.floor(Math.random() * 10) + 1;
+	  for (j = 0; j < i; j++)
+		if (a[i] == a[j]) {
+		  --i;
+		  break;
+		}
+	}
+
+	var result = s + "<br/>";
+	for (i = 0; i < 3; i++) result += a[i] + " ";
+	$("#result").html(result);
+	var total = 0; 
+	for ( l = 0; l < 3; l++){
+		for ( k = 0; k < 3; k++){
+			if (a[l] == s[k])total++;
+		}
+	}
+	var total = "有幾個相符:" + total;
+	$("#total").html(total);
+}
+
+
+</script>
+</head>
+<body>
+Input 3 numbers between 1 and 10: <input type = "text" id = "numbers" />
+<button id = "random">Guess</button>
+<p id = "result"/>
+<p id = "total"/>
+</body>
+</html>

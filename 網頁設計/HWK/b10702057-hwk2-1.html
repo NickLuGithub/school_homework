@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head>
+<title>WHR</title>
+<script type = "text/javascript">
+function whr()
+{
+	var waist = document.getElementById("waist").value - 0;
+	var hip = document.getElementById("hip").value - 0;
+    var whr = waist / hip;
+    document.getElementById("whr").innerHTML = "Your WHR is " + whr;
+    var x = document.getElementById("myOption").text;
+    if ( x == 'Female'){
+    	if(whr < 0.8){
+    		document.getElementById("whr").innerHTML += "<br/>Under or normal";
+    	}else if (whr > 0.85){
+    		document.getElementById("whr").innerHTML += "<br/>Obesity";
+    	}else{
+    		document.getElementById("whr").innerHTML += "<br/>Overweight";
+    	}
+    }
+    else{
+    	if(whr < 0.9){
+    		document.getElementById("whr").innerHTML += "<br/>Under or normal";
+    	}else if (whr > 1){
+    		document.getElementById("whr").innerHTML += "<br/>Obesity";
+    	}else{
+    		document.getElementById("whr").innerHTML += "<br/>Overweight";
+    	}
+    }
+    
+}
+</script>
+</head>
+<body>
+Input Waist(in): <input type = "text" id = "waist" size = "5"; />
+Hip(in):<input type = "text" id = "hip" size = "5"; />
+<select>
+  <option id = "myOption" value="Female">Female</option>
+  <option value="Male">Male</option>
+</select>
+<button onclick = "whr()">WHR</button>
+<p id = "whr"/>
+</body>
+</html>

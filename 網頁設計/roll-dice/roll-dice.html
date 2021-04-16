@@ -1,0 +1,28 @@
+<html>
+<head>
+<script>
+var rolling;
+function roll() {
+  rolling = setInterval(frame, 50);
+}
+function frame() {  
+  var n = Math.floor(Math.random() * 6) + 1;
+  document.getElementById("dice").src = "dice" + n + ".png";
+}
+function stop() {
+  clearInterval(rolling);
+}
+</script>
+
+</head>
+<img id = "dice1" src = "dice1.png" />
+<img id = "dice2" src = "dice1.png" />
+<img id = "dice3" src = "dice1.png" /> <br/>
+<img id = "dice4" src = "dice1.png" />
+<img id = "dice5" src = "dice1.png" />
+<img id = "dice6" src = "dice1.png" /> <br/>
+<button onclick="roll()">Roll</button>
+<button onclick="stop()">Stop</button>
+<body>
+</body>
+</html>

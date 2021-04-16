@@ -1,0 +1,31 @@
+<html>
+<head><title>Triangle Area</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type = "text/javascript">
+function f(x, c, d) {
+	return ((x * x) + d) / Math.sqrt(x + c);
+}
+function area() {
+  var a = document.getElementById("a").value - 0;
+  var b = document.getElementById("b").value - 0;
+  var c = document.getElementById("c").value - 0;
+  var d = document.getElementById("d").value - 0;
+  var n = document.getElementById("n").value - 0;  
+  var dx = (b - a) / n;
+  var sum = 0;
+  for ( var x = a; x <= b; x += dx) sum += dx * f(x + dx/2, c, d);
+  document.getElementById("result").innerHTML = "the integral is " + sum;
+
+}
+</script>
+</head>
+<body>
+a = <input type = "text" id = "a">
+b = <input type = "text" id = "b">
+c = <input type = "text" id = "c">
+d = <input type = "text" id = "d">
+n = <input type = "text" id = "n">
+<button type="button" onclick="area()">Area</button>
+<p id = "result"/>
+</body>
+</html>
